@@ -96,10 +96,29 @@ void printList(char givenarray[][40], int currentLine)
 int spin(char givenArray[][40], int toggleCheck, int currentLine)
 {
     srand(time(NULL));
-    int random = rand();
-    if (currentLine <= 0)
+    int pulledNum = rand();
+    int random;
+    if (currentLine <= 1)
     {
         printf("nothing to spin");
+        return currentLine;
+    }
+
+    random = pulledNum % currentLine;
+
+    if (toggleCheck)
+    { // gi bali ang true and false statement kay para kung true
+        printf("%s was selected! (Number: \"%d\")", givenArray[random], random);
+        for (int i = random; i < currentLine; i++)
+        {
+            strcpy(givenArray[i], givenArray[i + 1]);
+            random++;
+        }
+        return currentLine - 1;
+    }
+    else
+    {
+        printf("%s was selected! (Number: \"%d\")", givenArray[random], random + 1);
         return currentLine;
     }
 }
@@ -110,12 +129,11 @@ int spin(char givenArray[][40], int toggleCheck, int currentLine)
 int main()
 {
     char arrayOfNames[10][40];
-    int size = sizeof(arrayOfNames) / sizeof(arrayOfNames[0]);
     int nextInLine = 0;
     int choice = 0;
     int isToggleDeleteBoolean = 0;
 
-    printf("\tSpin da weel fn\n\n");
+    printf("\tSpin da weel fn\n");
 
     while (1)
     {
@@ -139,7 +157,7 @@ int main()
             printList(arrayOfNames, nextInLine);
             break;
         case 5:
-            printf("5; nuffun available rn");
+            nextInLine = spin(arrayOfNames, isToggleDeleteBoolean, nextInLine);
             break;
         case 6:
             return 0;
