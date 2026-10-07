@@ -1,26 +1,38 @@
 #include <stdio.h>
 
-int isEvenNumber(int number){
+int isEvenNumber(int number)
+{
     return number % 2 == 0; // little helper
 }
 
-int checkFN(int number1, int number2){
-    if (number1>number2){      
-        if (isEvenNumber(number1)){
-            return 3;    // first number is greater than second and is even
-        } else {
-            return 2;    // first number is greater than second and is odd
+int checkFN(int number1, int number2)
+{
+    if (number1 > number2)
+    {
+        if (isEvenNumber(number1))
+        {
+            return 3; // first number is greater than second and is even
         }
-    } else {
-        if (isEvenNumber(number1)){
-            return 1;   // first number is lesser than second and is even
-        } else {
-            return 0;   // first number is lesser than second and is odd
+        else
+        {
+            return 2; // first number is greater than second and is odd
+        }
+    }
+    else
+    {
+        if (isEvenNumber(number1))
+        {
+            return 1; // first number is lesser than second and is even
+        }
+        else
+        {
+            return 0; // first number is lesser than second and is odd
         }
     }
 }
 
-void main(){
+void main()
+{
     // variables
 
     int givenNumber1, givenNumber2;
@@ -28,7 +40,7 @@ void main(){
 
     // input
 
-    printf("wazzah mai nigga, gimmie numbah finna check if its above this numbah and odd or even: ");
+    printf("wazzah mai brodi, gimmie numbah finna check if its above this numbah and odd or even: ");
     scanf("%d %d", &givenNumber1, &givenNumber2);
 
     // process
@@ -37,13 +49,20 @@ void main(){
 
     // statement and output
 
-    if (result == 3){
+    if (result == 3)
+    {
         printf("the first number %d is greater than the second number %d and the first number is even.", givenNumber1, givenNumber2);
-    } else if (result == 2) {
+    }
+    else if (result == 2)
+    {
         printf("the first number %d is greater than the second number %d and the first number is odd", givenNumber1, givenNumber2);
-    } else if (result == 1) {
+    }
+    else if (result == 1)
+    {
         printf("the first number %d is lesser than the second number %d and the first number is even", givenNumber1, givenNumber2);
-    } else {
+    }
+    else
+    {
         printf("the first number %d is lesser than the second number %d and the first number is odd", givenNumber1, givenNumber2);
     }
 }

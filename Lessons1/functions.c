@@ -1,37 +1,48 @@
 #include <stdio.h>
 
-int vibeCheck(int character1){
-    if (character1 > 84){
+int vibeCheck(int character1)
+{
+    if (character1 > 84)
+    {
         return 2;
-    } else if (character1 > 42){
+    }
+    else if (character1 > 42)
+    {
         return 1;
-    } else{
+    }
+    else
+    {
         return 0;
     }
 }
 
-
-void main(){
+void main()
+{
     // variables
     char givenCharacter;
     int translated;
     int result;
 
     // input
-    printf("Give me a character fuck nigga, finna check if it's vibe check:");
+    printf("Give me a character, finna check if it's vibe check:");
     scanf(" %c", &givenCharacter);
-    
+
     // process
     translated = givenCharacter;
     result = vibeCheck(translated);
-    printf("%d\n",translated);
+    printf("%d\n", translated);
 
     // statement & output
-    if (result == 2){
+    if (result == 2)
+    {
         printf("ur character passed the vibe check with the score of %d", translated);
-    } else if (result == 1){
+    }
+    else if (result == 1)
+    {
         printf("ionno man. i like u but ion fw u type shit, score of %d", translated);
-    } else{
+    }
+    else
+    {
         printf("fuck outta here, score %d", translated);
     }
 }

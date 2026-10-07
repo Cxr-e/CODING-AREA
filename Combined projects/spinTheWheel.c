@@ -4,6 +4,60 @@
 #include <stdlib.h>
 #include <time.h>
 
+// prototype functions
+
+int addingName(char givenarray[][40], int currentLine);
+int removingName(char givenarray[][40], int currentLine);
+int toggleModule(int giveBackEither);
+void printList(char givenarray[][40], int currentLine);
+int spin(char givenArray[][40], int toggleCheck, int currentLine);
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// MAAAAAAAAAAIIIIIIIIIIIIIIIIIIIIINNNNNNNNNNNNNNNNN
+
+int main()
+{
+    char arrayOfNames[10][40];
+    int nextInLine = 0;
+    int choice = 0;
+    int isToggleDeleteBoolean = 0;
+
+    printf("\tSpin da weel fr\n");
+
+    while (1)
+    {
+        printf("\n\tcurrent in line: %d\n", nextInLine);
+        printf("1. Add\n2. Remove\n3. Toggle deletion\n4. Current list.\n5. Spin!\n6. Exit");
+        printf("\nEnter number: ");
+        scanf("%d", &choice);
+
+        switch (choice)
+        {
+        case 1:
+            nextInLine = addingName(arrayOfNames, nextInLine);
+            break;
+        case 2:
+            nextInLine = removingName(arrayOfNames, nextInLine);
+            break;
+        case 3:
+            isToggleDeleteBoolean = toggleModule(isToggleDeleteBoolean);
+            break;
+        case 4:
+            printList(arrayOfNames, nextInLine);
+            break;
+        case 5:
+            nextInLine = spin(arrayOfNames, isToggleDeleteBoolean, nextInLine);
+            break;
+        case 6:
+            return 0;
+        default:
+            printf("invalid number");
+            break;
+        }
+    }
+    return 0;
+}
+
 // MOOOOOODUUUUUUUUUUUUULEEEEEEES
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -16,7 +70,7 @@ int addingName(char givenarray[][40], int currentLine)
         printf("full\n");
         return currentLine;
     }
-    printf("Insert name nigga: ");
+    printf("Insert name: ");
     scanf("%39s", givenName);
     strcpy(givenarray[currentLine], givenName);
     return currentLine + 1;
@@ -79,7 +133,7 @@ void printList(char givenarray[][40], int currentLine)
     int count = 1;
     if (currentLine <= 0)
     {
-        printf("empty nigga.\n");
+        printf("empty list.\n");
         return;
     }
 
@@ -108,7 +162,7 @@ int spin(char givenArray[][40], int toggleCheck, int currentLine)
 
     if (toggleCheck)
     { // gi bali ang true and false statement kay para kung true
-        printf("%s was selected! (Number: \"%d\")", givenArray[random], random);
+        printf("%s was selected! (Number: \"%d\")", givenArray[random], random + 1);
         for (int i = random; i < currentLine; i++)
         {
             strcpy(givenArray[i], givenArray[i + 1]);
@@ -121,50 +175,4 @@ int spin(char givenArray[][40], int toggleCheck, int currentLine)
         printf("%s was selected! (Number: \"%d\")", givenArray[random], random + 1);
         return currentLine;
     }
-}
-
-// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-// MAAAAAAAAAAIIIIIIIIIIIIIIIIIIIIINNNNNNNNNNNNNNNNN
-
-int main()
-{
-    char arrayOfNames[10][40];
-    int nextInLine = 0;
-    int choice = 0;
-    int isToggleDeleteBoolean = 0;
-
-    printf("\tSpin da weel fn\n");
-
-    while (1)
-    {
-        printf("\n\tcurrent in line: %d\n", nextInLine);
-        printf("1. Add\n2. Remove\n3. Toggle deletion\n4. Current list.\n5. Spin!\n6. Exit");
-        printf("\nEnter number: ");
-        scanf("%d", &choice);
-
-        switch (choice)
-        {
-        case 1:
-            nextInLine = addingName(arrayOfNames, nextInLine);
-            break;
-        case 2:
-            nextInLine = removingName(arrayOfNames, nextInLine);
-            break;
-        case 3:
-            isToggleDeleteBoolean = toggleModule(isToggleDeleteBoolean);
-            break;
-        case 4:
-            printList(arrayOfNames, nextInLine);
-            break;
-        case 5:
-            nextInLine = spin(arrayOfNames, isToggleDeleteBoolean, nextInLine);
-            break;
-        case 6:
-            return 0;
-        default:
-            printf("invalid number");
-            break;
-        }
-    }
-    return 0;
 }
