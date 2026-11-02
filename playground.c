@@ -1,25 +1,22 @@
 #include <stdio.h>
-#include <ctype.h>
-/*
+
 int main()
 {
-    int x = 10, y = 2;
+    int count = 1, given, calc = 0, evenCount = 0;
 
-    if (x > y)
+    scanf("%d", &given);
+
+    for (int x = 0; x < given; x++)
     {
-        printf("larger number is %d", x);
+        if (calc % 2 == 0)
+        {
+            evenCount++;
+        }
+        calc += count;
+        count++;
     }
-    else
-        printf("nigger");
 
-    return 0;
-}*/
+    printf("%d, %d", calc, evenCount);
 
-int main()
-{
-    char given;
-    scanf("%c", &given);
-    given = toupper(given);
-    printf("%c", given);
     return 0;
 }

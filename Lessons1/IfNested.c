@@ -37,10 +37,11 @@ void main()
 
     int givenNumber1, givenNumber2;
     int result;
+    ~
 
-    // input
+        // input
 
-    printf("wazzah mai brodi, gimmie numbah finna check if its above this numbah and odd or even: ");
+        printf("wazzah mai brodi, gimmie numbah finna check if its above this numbah and odd or even: ");
     scanf("%d %d", &givenNumber1, &givenNumber2);
 
     // process
