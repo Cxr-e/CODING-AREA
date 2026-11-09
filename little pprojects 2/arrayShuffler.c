@@ -6,7 +6,7 @@ int main()
 {
     srand(time(NULL));
 
-    int arrayOfNumbers[10];
+    int arrayOfNumbers[15];
     int arrayCount = sizeof(arrayOfNumbers) / sizeof(arrayOfNumbers[0]);
 
     int middleMan, manOne, manTwo, counter = 0;
@@ -45,7 +45,8 @@ int main()
 
     for (int z = 0; z < arrayCount; z++)
     {
-        printf("%d:\t%d\n", z + 1, arrayOfNumbers[z]);
+        // printf("%d:\t%d\n", z + 1, arrayOfNumbers[z]);
+        printf("%d, ", arrayOfNumbers[z]);
     }
 
     return 0;

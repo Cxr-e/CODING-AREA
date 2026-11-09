@@ -25,16 +25,13 @@ int main()
 
     for (int x = 0; x < arrCount; x++)
     {
-        if (arr[x] > arr[x + 1])
+        if (arr[x] > arr[x + 1] && x != arrCount - 1)
         {
             count = arr[x];
             arr[x] = arr[x + 1];
             arr[x + 1] = count;
             count = 0;
-            printf("sorted %d, and %d\n", arr[x], arr[x + 1]);
-
-            printf("current x = %d\n", x);
-            x = 0;
+            x = -1;
             continue;
         }
     }

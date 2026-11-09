@@ -2,21 +2,27 @@
 
 int main()
 {
-    int count = 1, given, calc = 0, evenCount = 0;
+    int given = 0, count = 0, x = 0;
 
-    scanf("%d", &given);
-
-    for (int x = 0; x < given; x++)
+    while (1)
     {
-        if (calc % 2 == 0)
+        printf("\nInput: ");
+        scanf("%d", &given);
+        if (given >= 0)
         {
-            evenCount++;
+            count += given;
+            given = 0;
+            x++;
+            printf("%d, %d", count, x);
+            continue;
         }
-        calc += count;
-        count++;
+        else
+        {
+            break;
+        }
     }
 
-    printf("%d, %d", calc, evenCount);
+    printf("Total: %d", count / x);
 
     return 0;
 }
